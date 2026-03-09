@@ -1,80 +1,88 @@
 # Substring Search Benchmark
 
-Учебный C++ проект для сравнения двух алгоритмов поиска подслов в строке:
+A small C++ project for comparing substring search algorithms on generated test data.
 
-- наивный поиск
-- поиск по эвристике плохого символа (Boyer–Moore Bad Character)
+## Overview
 
-## Что умеет проект
+This project benchmarks two approaches for substring search:
 
-- загружает тестовые данные из файла
-- проверяет корректность результатов через `std::string::find`
-- считает количество операций и время выполнения
-- сохраняет результаты в CSV
-- умеет генерировать случайные тесты
-- содержит простой скрипт для построения графиков
+- Naive search
+- Boyer–Moore (bad character heuristic)
 
-## Структура
+The program can generate datasets, run both algorithms on the same input, save the results, and visualize execution time with plots.
 
-```
+## Features
+
+- comparison of two substring search algorithms
+- random test data generation
+- CSV export for benchmark results
+- execution time measurement
+- result visualization with Python scripts
+
+## Algorithms
+
+### Naive Search
+Checks each possible position in the text and compares characters one by one.
+
+### Boyer–Moore (Bad Character Heuristic)
+Uses preprocessing of the pattern to skip unnecessary comparisons and improve performance on larger inputs.
+
+## Project Structure
+
+```text
 .
-├── include/        # заголовочные файлы
-├── src/            # исходники C++
-├── data/           # примеры входных данных
-├── scripts/        # вспомогательные скрипты
+├── include/        # headers
+├── src/            # C++ source files
+├── data/           # input/output benchmark data
+├── scripts/        # plotting utilities
 ├── CMakeLists.txt
 └── README.md
-```
-
-## Сборка
-
-```bash
+Build
 cmake -S . -B build
 cmake --build build
-```
-
-## Запуск
-
-```bash
+Run
 ./build/substring_search_benchmark
-```
+Output
 
-По умолчанию `main.cpp` запускает серию бенчмарков по размеру алфавита и пишет результаты в:
+The program generates benchmark results that can be exported to CSV and then plotted using Python scripts.
 
-- `out1.csv`
-- `out2.csv`
+Visualization
 
-## Формат входного файла
+Example plotting script:
 
-```
-N
-MAIN_WORD
-SUBWORD_1
-SUBWORD_2
-...
-SUBWORD_N
-```
-
-Где:
-
-- `N` — количество подслов
-- `MAIN_WORD` — строка, внутри которой идёт поиск
-- `SUBWORD_i` — очередное подслово
-
-## Графики
-
-Для построения графиков:
-
-```bash
-pip install pandas plotly
 python scripts/plot.py
-```
+Why this project matters
 
-## Что было приведено в порядок
+This project demonstrates:
 
-- добавлен CMake
-- исправлены явные баги в консольной логике
-- убраны утечки памяти в базовом классе
-- убраны опасные `extern = ...` определения
-- добавлен нормальный `.gitignore`
-- структура проекта подготовлена под загрузку в Git
+implementation of classical string-search algorithms
+
+performance measurement in C++
+
+working with generated datasets
+
+basic benchmark automation and result analysis
+
+Possible Improvements
+
+add Knuth–Morris–Pratt
+
+add full Boyer–Moore implementation
+
+support larger benchmark suites
+
+add unit tests
+
+improve CLI options
+
+Tech Stack
+
+C++
+
+CMake
+
+Python (for plotting)
+
+Author
+
+Student project focused on algorithm analysis and benchmarking.
