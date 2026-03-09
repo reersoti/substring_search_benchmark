@@ -1,91 +1,103 @@
 # Substring Search Benchmark
 
-A small C++ project for comparing substring search algorithms on generated test data.
+A C++ project for benchmarking classical substring search algorithms on generated test data.
 
 ## Overview
 
-This project benchmarks two approaches for substring search:
+This project compares two approaches to substring search:
 
-- **Naive search** — basic character-by-character comparison
-- **Boyer–Moore** (bad character heuristic) — optimized with pattern preprocessing
+- Naive search
+- Boyer–Moore (bad character heuristic)
 
-The program can generate datasets, run both algorithms on the same input, save the results, and visualize execution time with plots.
+The repository was created to study how different string matching strategies behave in practice, especially as the size of the input data grows. The program can generate datasets, run both algorithms on the same input, collect performance metrics, and visualize the results.
+
+The project is focused on algorithm analysis, benchmarking, and performance comparison rather than on building a production-ready library.
 
 ## Features
 
-- 🔍 Comparison of two substring search algorithms
-- 🎲 Random test data generation
-- 📊 CSV export for benchmark results
-- ⏱️ Execution time measurement
-- 📈 Result visualization with Python scripts
+- implementation of substring search algorithms in C++
+- comparison of naive search and Boyer–Moore
+- generated benchmark datasets
+- execution time measurement
+- CSV export for results
+- visualization of benchmark output with Python scripts
 
 ## Algorithms
 
 ### Naive Search
-Checks each possible position in the text and compares characters one by one. Simple but inefficient for large inputs.
+
+The naive algorithm checks every possible position in the source string and compares the pattern character by character.  
+It is simple to implement, but its efficiency decreases significantly on large inputs.
 
 ### Boyer–Moore (Bad Character Heuristic)
-Uses preprocessing of the pattern to skip unnecessary comparisons and improve performance on larger inputs.
+
+This implementation uses the bad character rule to skip unnecessary comparisons.  
+In many practical cases, it performs much faster than naive search, especially on longer texts and patterns.
 
 ## Project Structure
 
-```
+```text
 .
-├── include/        # Header files
-├── src/            # C++ source files
-├── data/           # Input/output benchmark data
-├── scripts/        # Plotting utilities
-├── CMakeLists.txt  # Build configuration
-└── README.md       # This file
+├── include/        # header files
+├── src/            # source files
+├── data/           # benchmark input/output data
+├── scripts/        # plotting utilities
+├── CMakeLists.txt
+└── README.md
 ```
 
-## Building and Running
+## Build
 
-### Build
 ```bash
 cmake -S . -B build
 cmake --build build
 ```
 
-### Run
+## Run
+
 ```bash
 ./build/substring_search_benchmark
 ```
 
-### Output
-The program generates benchmark results that can be exported to CSV and then plotted using Python scripts.
-
 ## Visualization
 
-Plot the results using the provided Python script:
+If benchmark results are exported to CSV, they can be visualized with a Python plotting script:
 
 ```bash
 python scripts/plot.py
 ```
 
-## Why This Project Matters
+## Example Use Case
 
-This project demonstrates:
+This project can be used to:
 
-- Implementation of classical string-search algorithms
-- Performance measurement techniques in C++
-- Working with generated datasets
-- Basic benchmark automation and result analysis
+- compare classical substring search algorithms
+- demonstrate why heuristic-based approaches matter
+- generate performance plots for coursework or algorithm analysis
+- study the effect of input size on execution time
+
+## What This Project Demonstrates
+
+- implementation of classical algorithms in C++
+- practical benchmarking
+- work with generated datasets
+- collection and analysis of experimental results
+- basic automation of research-style experiments
 
 ## Possible Improvements
 
-- [ ] Add Knuth–Morris–Pratt algorithm
-- [ ] Add full Boyer–Moore implementation
-- [ ] Support larger benchmark suites
-- [ ] Add unit tests
-- [ ] Improve CLI options
+- add Knuth–Morris–Pratt (KMP)
+- add more complete Boyer–Moore heuristics
+- support command-line configuration
+- improve dataset generation options
+- add unit tests and reproducible benchmark scenarios
 
 ## Tech Stack
 
-- **C++** — Core implementation
-- **CMake** — Build system
-- **Python** — Data visualization
+- C++
+- CMake
+- Python (for plotting and visualization)
 
-## Author
+## Notes
 
-Student project focused on algorithm analysis and benchmarking.
+This repository is intended as an educational and experimental project focused on algorithm comparison and performance measurement.
