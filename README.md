@@ -1,5 +1,7 @@
 # Substring Search Benchmark
 
+![CMake CI](https://github.com/reersoti/substring_search_benchmark/actions/workflows/cmake.yml/badge.svg)
+
 A C++ project for benchmarking classical substring search algorithms on generated test data.
 
 ## Overview
@@ -59,6 +61,10 @@ cmake --build build
 ./build/substring_search_benchmark
 ```
 
+## Continuous Integration
+
+The repository includes a GitHub Actions workflow that automatically builds the project on every push and pull request to `main`.
+
 ## Visualization
 
 If benchmark results are exported to CSV, they can be visualized with a Python plotting script:
@@ -94,9 +100,10 @@ This project can be used to:
 
 ## Tech Stack
 
-- C++
+- C++17
 - CMake
 - Python (for plotting and visualization)
+- GitHub Actions
 
 ## Notes
 
