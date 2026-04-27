@@ -44,6 +44,7 @@ In many practical cases, it performs much faster than naive search, especially o
 ├── src/            # source files
 ├── data/           # benchmark input/output data
 ├── scripts/        # plotting utilities
+├── docs/           # benchmark result notes
 ├── CMakeLists.txt
 └── README.md
 ```
@@ -60,6 +61,10 @@ cmake --build build
 ```bash
 ./build/substring_search_benchmark
 ```
+
+## Documentation
+
+- [Benchmark Results Template](docs/BENCHMARK_RESULTS.md)
 
 ## Continuous Integration
 
